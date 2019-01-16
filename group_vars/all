@@ -1,0 +1,4 @@
+group: sivdev
+user: sivdev_user
+ssh_dir: "/Users/alysivji/.ssh/"
+ssh_key_name: "digitalocean"
