@@ -29,6 +29,10 @@
       become_method: sudo
 ```
 
+## Workflow
+
+1. Run `ansible-playbook -i ./hosts playbook_init_config.yml`
+
 ## Resources
 
 - [TalkPython course: Intro to Ansible](https://training.talkpython.fm/courses/details/introduction-to-ansible-with-python)

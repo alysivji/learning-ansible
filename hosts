@@ -1,2 +1,2 @@
-[common]
+[docker]
 159.203.98.139 ansible_python_interpreter=/usr/bin/python3

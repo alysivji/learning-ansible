@@ -1,0 +1,8 @@
+######################
+# Configure Docker box
+######################
+- name: set up server to run docker and docker dependencies
+  hosts: docker
+  user: "{{ user }}"
+  roles:
+    - common
