@@ -7,6 +7,8 @@
 `ssh-keygen -t rsa -b 4096`
 `ssh-copy-id root@[ip]`
 
+2. point to prviate key or add it using ssh-add, uses OpenSSH.
+
 ## Definitions
 
 ### Inventory File
@@ -32,6 +34,10 @@
 ## Workflow
 
 1. Run `ansible-playbook -i ./hosts playbook_init_config.yml`
+
+--ask-pass
+--key-file
+https://stackoverflow.com/questions/44734179/specifying-ssh-key-in-ansible-playbook-file
 
 ## Resources
 
