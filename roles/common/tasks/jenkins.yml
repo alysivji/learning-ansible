@@ -1,7 +1,56 @@
-- name: Install Java and Other Dependencies
+---
+
+- name: Make sure all required dependencies are installed
   apt:
-    name: ["default-jre", "make"]
-    state: "present"
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  become: yes
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates
+    - default-jre
+    - make
+
+- name: Add Jenkins apt key
+  apt_key:
+    url: https://pkg.jenkins.io/debian/jenkins.io.key
+    state: present
+  become: yes
+  register: add_repository_key
+  ignore_errors: yes
+
+- name: Add jenkins repository
+  apt_repository:
+    repo: 'deb http://pkg.jenkins.io/debian-stable binary/'
+    state: present
   become: yes
 
-# open port 8080 in firewall
+- name: Install Jenkins
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  become: yes
+  vars:
+    packages:
+    - jenkins
+
+- name: Add jenkins user to docker group
+  user:
+    name: "jenkins"
+    groups: "docker"
+    append: "yes"
+  become: yes
+
+- name: Enable jenkins systemd service
+  service:
+    name: "jenkins"
+    state: "started"
+    enabled: "yes"
+  become: yes
+
+- name: enable Jenkins within the firewall
+  ufw: rule=allow port=8080
+  become: yes
