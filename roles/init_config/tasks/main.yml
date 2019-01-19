@@ -16,7 +16,7 @@
 - name: add authorized_key to non-root user
   authorized_key:
     user: "{{ user }}"
-    key: "{{ lookup('file', ssh_dir + ssh_key_name + '.pub') }}"
+    key: "{{ authorized_key }}"
     state: present
   when: not ansible_check_mode
 

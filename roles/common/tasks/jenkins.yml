@@ -1,0 +1,7 @@
+- name: Install Java and Other Dependencies
+  apt:
+    name: ["default-jre", "make"]
+    state: "present"
+  become: yes
+
+# open port 8080 in firewall
