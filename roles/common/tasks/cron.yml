@@ -1,0 +1,11 @@
+---
+- cron:
+    name: "Clean up untagged Docker artifacts once a week"
+    user: "{{ user }}"
+    state: present
+    minute: 0
+    hour: 0
+    day: "*"
+    month: "*"
+    weekday: "0"
+    job: "yes 'y' | docker system prune"
