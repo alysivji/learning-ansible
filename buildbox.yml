@@ -1,9 +1,8 @@
 ---
 - name: set up VPS
-  hosts: docker
+  hosts: buildbox
   user: "{{ user }}"
   roles:
-    - common
     - docker
     - jenkins
     - deploy

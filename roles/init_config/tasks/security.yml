@@ -6,9 +6,12 @@
   become: yes
 
 - name: enable SSH within the firewall
-  ufw: rule=allow port=22
+  ufw:
+    rule: allow
+    port: 22
   become: yes
 
 - name: enable firewall itself
-  ufw: state=enabled
+  ufw:
+    state: enabled
   become: yes
