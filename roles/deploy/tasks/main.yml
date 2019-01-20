@@ -1,0 +1,2 @@
+- include: python_venv.yml
+- include: deploy_app.yml

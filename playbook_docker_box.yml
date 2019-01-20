@@ -1,8 +1,10 @@
-######################
-# Configure Docker box
-######################
-- name: set up server to run docker and docker dependencies
+---
+- name: set up VPS
   hosts: docker
   user: "{{ user }}"
   roles:
     - common
+    - docker
+    - jenkins
+    - deploy
+    - cron

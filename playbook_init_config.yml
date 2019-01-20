@@ -1,3 +1,4 @@
+---
 - name: apply local configuration to servers listed in hosts
   hosts: all
   user: root

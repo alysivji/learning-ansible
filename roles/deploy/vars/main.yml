@@ -1,0 +1,5 @@
+---
+app_name: "busy-beaver"
+app_dir: "/home/{{ user }}/{{ app_name }}"
+venv_dir: "/home/{{ user }}/venv"
+code_repository: https://github.com/alysivji/busy-beaver.git

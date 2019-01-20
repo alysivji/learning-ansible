@@ -1,0 +1,17 @@
+# Download app and install dependencies into virtual environment and deploy
+---
+- name: ensure Git is installed
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: clone or pull latest code
+  git:
+    repo: "{{ code_repository }}"
+    dest: "{{ app_dir }}"
+
+- name: use pip3 to install application dependencies
+  shell: "cd {{ app_dir }}; {{ venv_dir }}/bin/pip3 install --upgrade -r requirements.txt"
+  become: yes

@@ -1,0 +1,3 @@
+ssh_dir: "/Users/alysivji/.ssh/"
+ssh_key_name: "digitalocean"
+authorized_key: "{{ lookup('file', ssh_dir + ssh_key_name + '.pub') }}"

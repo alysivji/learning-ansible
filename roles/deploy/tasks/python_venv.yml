@@ -1,0 +1,23 @@
+# Install Python and create a virtual environment
+---
+- name: Make sure all required dependencies are installed
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  become: yes
+  vars:
+    packages:
+      - gcc
+      - python3.6
+      - python-virtualenv
+      - make
+
+- name: check if virtualenv is created
+  stat:
+    path: "{{ venv_dir }}"
+  register: venv_created
+
+- name: create virtualenv if it does not already exist
+  shell: "virtualenv -p python3.6 {{ venv_dir }}"
+  when: not venv_created.stat.exists

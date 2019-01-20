@@ -1,5 +1,5 @@
+# Install Jenkins and keep it on
 ---
-
 - name: Make sure all required dependencies are installed
   apt:
     name: "{{ packages }}"
@@ -8,10 +8,10 @@
   become: yes
   vars:
     packages:
-    - apt-transport-https
-    - ca-certificates
-    - default-jre
-    - make
+      - apt-transport-https
+      - ca-certificates
+      - default-jre
+      - make
 
 - name: Add Jenkins apt key
   apt_key:
@@ -35,7 +35,7 @@
   become: yes
   vars:
     packages:
-    - jenkins
+      - jenkins
 
 - name: Add jenkins user to docker group
   user:

@@ -1,5 +1,5 @@
 # Recommended reading: https://ops.tips/blog/docker-ansible-role/
-
+---
 - name: Install list of packages
   apt:
     name: ["apt-transport-https", "ca-certificates", "curl", "gnupg2", "software-properties-common"]
